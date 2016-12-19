@@ -5,22 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".app.MainActivity">
+    tools:context=".app.MainActivity"
+    android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_logo"/>
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.AppBarOverlay"/>
 
-    </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

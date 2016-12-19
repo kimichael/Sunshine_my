@@ -21,6 +21,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.text.format.Time;
 import android.util.Log;
 
@@ -267,6 +268,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
 
         String format = "json";
         String units = "metric";
+        String lang = "ru";
         int numDays = 14;
 
         try {
@@ -280,6 +282,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
             final String UNITS_PARAM = "units";
             final String DAYS_PARAM = "cnt";
             final String APPID_PARAM = "APPID";
+            final String LANG_PARAN = "lang";
 
             Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                     .appendQueryParameter(QUERY_PARAM, params[0])
@@ -287,6 +290,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
                     .appendQueryParameter(UNITS_PARAM, units)
                     .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
                     .appendQueryParameter(APPID_PARAM, BuildConfig.OPEN_WEATHER_MAP_API_KEY)
+                    .appendQueryParameter(LANG_PARAN, lang)
                     .build();
 
             URL url = new URL(builtUri.toString());
